@@ -1,7 +1,3 @@
-![](_assets/images/documentation/chalk-intro@2x.png)
-
-Chalk is a high quality, completely customizable, performant and 100% free blog template for Jekyll.
-
 ## Deploy to GitHub Pages
 
 Before you deploy, commit your changes to any working branch except the `gh-pages` one and run the following command:
