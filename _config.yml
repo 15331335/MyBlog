@@ -3,13 +3,13 @@
 blog_theme: light # Or use dark
 name: Hiyoung
 paginate: 10
-url: https://15331335.github.io/blog # add your site url (format: https://example.com)
+url: https://15331335.github.io/MyBlog # add your site url (format: https://example.com)
 
 
 # Optional settings
 
 about_enabled: true # Change to true if you wish to show an icon in the navigation that redirects to the about page
-baseurl: /blog # Set if blog doesn't sit at the root of the domain (format: /blog)
+baseurl: /MyBlog # Set if blog doesn't sit at the root of the domain (format: /blog)
 discus_identifier: # Add your Disqus identifier
 ga_analytics: # Add your GA Tracking Id
 local_fonts: false # Change to true if you wish to use local fonts
