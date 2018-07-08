@@ -66,12 +66,12 @@ $E$ 是训练周期数，$T$ 是训练集中的词数，$Q$是由模型本身决
 
 #### Feedforward Neural Net Language Model (NNLM)
 
-```mermaid
+{% mermaid %}
 graph LR
 A[Input] --> B[Projection]
 	B -->C[Hidden]
 	C -->D[Output]
-```
+{% endmermaid %}
 
 其中复杂度为：$Q=N\*D+N\*D\*H+H\*V$
 
@@ -79,16 +79,16 @@ A[Input] --> B[Projection]
 
 - $N$ 所代表的之前的词数，使用 $1$ 到 $V$ 编码。
 - 针对词汇表的频率可以使用词汇的 Huffman 二叉树表示，从而减少输出层单元变为$log_2(V)$ ，采用分层的 Softmax 可以只需要 $log_2(Unigram\_perplexity(V))$ 。
-- 其中最复杂的部分集中在隐层部分的 $N\*D\*H$
+- 其中最复杂的部分集中在隐层部分的 $N*D*H$
 
 #### Recurrent Neural Net Language Model (RNNLM)
 
-```mermaid
+{% mermaid %}
 graph LR
 A[Input]-->B[Hidden]
 	B-->B
 	B-->C[Output]
-```
+{% endmermaid %}
 
 其中复杂度为：$Q=H\*H+H\*V$
 

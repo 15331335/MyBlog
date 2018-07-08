@@ -80,3 +80,7 @@ plugins:
   - jemoji
 paginate_path: /posts/page/:num/
 permalink: posts/:slug
+
+gems: [jekyll-mermaid]
+mermaid:
+  src: 'https://unpkg.com/mermaid@7.1.0/dist/mermaid.js'
