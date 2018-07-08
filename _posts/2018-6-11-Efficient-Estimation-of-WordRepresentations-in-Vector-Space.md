@@ -67,10 +67,10 @@ $E$ 是训练周期数，$T$ 是训练集中的词数，$Q$是由模型本身决
 #### Feedforward Neural Net Language Model (NNLM)
 
 {% mermaid %}
-graph LR
-A[Input] --> B[Projection]
-	B -->C[Hidden]
-	C -->D[Output]
+graph LR;
+    A[Input]-->B[Projection];
+    B-->C[Hidden];
+    C-->D[Output];
 {% endmermaid %}
 
 其中复杂度为：$Q=N\*D+N\*D\*H+H\*V$
@@ -84,10 +84,10 @@ A[Input] --> B[Projection]
 #### Recurrent Neural Net Language Model (RNNLM)
 
 {% mermaid %}
-graph LR
-A[Input]-->B[Hidden]
-	B-->B
-	B-->C[Output]
+graph LR;
+    A[Input]-->B[Hidden];
+    B-->B;
+    B-->C[Output];
 {% endmermaid %}
 
 其中复杂度为：$Q=H\*H+H\*V$
@@ -101,14 +101,14 @@ A[Input]-->B[Hidden]
 
 1. **Continuous Bag-of-Words Model**
 
-   ```mermaid
-   graph LR
-   w1[W_t-2] --> S[Sum]
-   w2[W_t-1] --> S[Sum]
-   w3[W_t+1] --> S[Sum]
-   w4[W_t+2] --> S[Sum]
-   S[Sum] --> w[W_t]
-   ```
+{% mermaid %}
+graph LR;
+   w1[W_t-2] --> S[Sum];
+   w2[W_t-1] --> S[Sum];
+   w3[W_t+1] --> S[Sum];
+   w4[W_t+2] --> S[Sum];
+   S[Sum] --> w[W_t];
+{% endmermaid %}
 
    其中复杂度为：$Q=N\*D+D\*log_2(V)$
 
@@ -117,14 +117,14 @@ A[Input]-->B[Hidden]
 
 2. **Continuous Skip-gram Model**
 
-   ```mermaid
-   graph LR
-   w[W_t] --> projection
-   projection --> w1[W_t-2]
-   projection --> w2[W_t-1]
-   projection --> w3[W_t+1]
-   projection --> w4[W_t+2]
-   ```
+{% mermaid %}
+graph LR;
+   w[W_t] --> projection;
+   projection --> w1[W_t-2];
+   projection --> w2[W_t-1];
+   projection --> w3[W_t+1];
+   projection --> w4[W_t+2];
+{% endmermaid %}
 
    其中复杂度为：$Q=C\*(D+D\*log_2(V))$
 
