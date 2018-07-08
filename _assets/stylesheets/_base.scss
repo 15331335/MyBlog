@@ -153,3 +153,7 @@ img {
   color: $white;
   background-color: $gray-darkest;
 }
+
+.grid path {
+  stroke-width: 1.5px !important;
+}
