@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Hiyoung | Ofo 共享单车 App 用车业务建模</title>
+  <meta name="description" content="从 ofo 共享单车的移动应用入手，利用系统建模的方法分析其核心业务。">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Ofo 共享单车 App 用车业务建模">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://15331335.github.io/MyBlog/MyBlog/posts/ofo-%E5%85%B1%E4%BA%AB%E5%8D%95%E8%BD%A6-app-%E7%94%A8%E8%BD%A6%E4%B8%9A%E5%8A%A1%E5%BB%BA%E6%A8%A1">
+  <meta property="og:description" content="从 ofo 共享单车的移动应用入手，利用系统建模的方法分析其核心业务。">
+  <meta property="og:site_name" content="Hiyoung">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://15331335.github.io/MyBlog/MyBlog/posts/ofo-%E5%85%B1%E4%BA%AB%E5%8D%95%E8%BD%A6-app-%E7%94%A8%E8%BD%A6%E4%B8%9A%E5%8A%A1%E5%BB%BA%E6%A8%A1">
+  <meta name="twitter:title" content="Ofo 共享单车 App 用车业务建模">
+  <meta name="twitter:description" content="从 ofo 共享单车的移动应用入手，利用系统建模的方法分析其核心业务。">
+
+  
+    
+      <meta property="og:image" content="https://15331335.github.io/MyBlog/MyBlog/assets/documentation/sample-image-0a264584b152aa8d86f61525d05ae1131787d0a1029aa1cb7e3e4148b5d34755.jpg">
+      <meta name="twitter:image" content="https://15331335.github.io/MyBlog/MyBlog/assets/documentation/sample-image-0a264584b152aa8d86f61525d05ae1131787d0a1029aa1cb7e3e4148b5d34755.jpg">
+    
+  
+
+  <link href="https://15331335.github.io/MyBlog/MyBlog/feed.xml" type="application/rss+xml" rel="alternate" title="Hiyoung Last 10 blog posts" />
+
+  
+
+  
+    <link rel="icon" type="image/x-icon" href="/MyBlog/assets/favicon-light-a98c41efc5ed9fcc06ac664c9e2f7a9b3c3b2e0a52357d221fe382f6f4abc8fc.ico">
+    <link rel="apple-touch-icon" href="/MyBlog/assets/apple-touch-icon-light-87d1f2a3a19b1500e5c1626a0492025ca5f7f97d24540dc5900288e92112925a.png">
+    <link rel="stylesheet" type="text/css" href="/MyBlog/assets/light-be96862508b7bb4497911637fbbdd848a1317f8c6ae4a6b2a82c6f88a3f35bf7.css">
+  
+
+  <script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav scrollappear">
+  <a href="/MyBlog/" class="header-logo" title="Hiyoung">Hiyoung</a>
+  <ul class="header-links">
+    
+      <li>
+        <a href="/MyBlog/about" title="About me">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-about">
+  <use href="/MyBlog/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about" xlink:href="/MyBlog/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://github.com/15331335" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/MyBlog/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github" xlink:href="/MyBlog/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:hiyoungtsui@gmail.com" title="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-email">
+  <use href="/MyBlog/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email" xlink:href="/MyBlog/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+  </ul>
+</nav>
+
+        <article class="article scrollappear">
+          <header class="article-header">
+            <h1>Ofo 共享单车 App 用车业务建模</h1>
+            <p>从 ofo 共享单车的移动应用入手，利用系统建模的方法分析其核心业务。</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                May 13, 2018
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  1 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/MyBlog/tag/experience">experience</a>
+                
+                  <a href="/MyBlog/tag/design">design</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <h2 id="软件描述">软件描述</h2>
+
+<p>根据<a href="https://github.com/15331335/modelling-practice/tree/master/problem">问题信息</a>，下面是页面流。</p>
+
+<p><a href="/MyBlog/assets/posts/2018-5-13/1@2x-41d77e80ac162b318cef553a456749d2768a5e5ddf34a7752fc17702692a83bc.png">
+  <img src="/MyBlog/assets/posts/2018-5-13/1-1d91308d9c1e5696c04ac7fb28a7a82eeb77d0598411ac3cc952cdcf535e19a1.png" alt="1" data-rjs="/MyBlog/assets/posts/2018-5-13/1@2x-41d77e80ac162b318cef553a456749d2768a5e5ddf34a7752fc17702692a83bc.png" data-action="zoom" data-zooming-width="1600" data-zooming-height="1200" />
+</a></p>
+
+<p><strong><em>用例图：</em></strong></p>
+
+<p><a href="/MyBlog/assets/posts/2018-5-13/lesson9_1-3ec866a0ae26717dd5b95b87ba376d683bf0ee0387c010b88acac25f9575c587.png">
+  <img src="/MyBlog/assets/posts/2018-5-13/lesson9_1-3ec866a0ae26717dd5b95b87ba376d683bf0ee0387c010b88acac25f9575c587.png" alt="lesson9_1" data-rjs="/MyBlog/assets/posts/2018-5-13/lesson9_1-3ec866a0ae26717dd5b95b87ba376d683bf0ee0387c010b88acac25f9575c587.png" data-action="zoom" data-zooming-width="820" data-zooming-height="600" />
+</a></p>
+
+<p><strong><em>活动图：</em></strong></p>
+
+<p><a href="/MyBlog/assets/posts/2018-5-13/lesson9_2-4fdafbf81ebe074fff861b00f2900f86c13c814fc5fa2c2a32907b6d345d9a6a.png">
+  <img src="/MyBlog/assets/posts/2018-5-13/lesson9_2-4fdafbf81ebe074fff861b00f2900f86c13c814fc5fa2c2a32907b6d345d9a6a.png" alt="lesson9_2" data-rjs="/MyBlog/assets/posts/2018-5-13/lesson9_2-4fdafbf81ebe074fff861b00f2900f86c13c814fc5fa2c2a32907b6d345d9a6a.png" data-action="zoom" data-zooming-width="660" data-zooming-height="730" />
+</a></p>
+
+<p><strong><em>领域模型：</em></strong></p>
+
+<p><a href="/MyBlog/assets/posts/2018-5-13/lesson9_3-d2586cd363c0ad829d9ac39169ab68f9956fc5e516e05e95d4208cffba82e08d.png">
+  <img src="/MyBlog/assets/posts/2018-5-13/lesson9_3-d2586cd363c0ad829d9ac39169ab68f9956fc5e516e05e95d4208cffba82e08d.png" alt="lesson9_3" data-rjs="/MyBlog/assets/posts/2018-5-13/lesson9_3-d2586cd363c0ad829d9ac39169ab68f9956fc5e516e05e95d4208cffba82e08d.png" data-action="zoom" data-zooming-width="580" data-zooming-height="310" />
+</a></p>
+
+<p><strong><em>状态图：</em></strong></p>
+
+<p><a href="/MyBlog/assets/posts/2018-5-13/lesson9_4-96d798b6566df8a1e04c504e8f1357f9659dcf3d255a8341e416ded035452ce1.png">
+  <img src="/MyBlog/assets/posts/2018-5-13/lesson9_4-96d798b6566df8a1e04c504e8f1357f9659dcf3d255a8341e416ded035452ce1.png" alt="lesson9_4" data-rjs="/MyBlog/assets/posts/2018-5-13/lesson9_4-96d798b6566df8a1e04c504e8f1357f9659dcf3d255a8341e416ded035452ce1.png" data-action="zoom" data-zooming-width="600" data-zooming-height="320" />
+</a></p>
+
+<p><strong><em>系统顺序图：</em></strong></p>
+
+<p><a href="/MyBlog/assets/posts/2018-5-13/lesson9_5-e78ecd83ac6a1b3b42dcfa694aa36af6c78579399d1dba714e5348b3fc907e89.png">
+  <img src="/MyBlog/assets/posts/2018-5-13/lesson9_5-e78ecd83ac6a1b3b42dcfa694aa36af6c78579399d1dba714e5348b3fc907e89.png" alt="lesson9_5" data-rjs="/MyBlog/assets/posts/2018-5-13/lesson9_5-e78ecd83ac6a1b3b42dcfa694aa36af6c78579399d1dba714e5348b3fc907e89.png" data-action="zoom" data-zooming-width="800" data-zooming-height="540" />
+</a></p>
+
+<p><em>If you find any bugs about this blog please contact me!</em></p>
+
+          </div>
+
+          <!-- <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=Ofo+%E5%85%B1%E4%BA%AB%E5%8D%95%E8%BD%A6+App+%E7%94%A8%E8%BD%A6%E4%B8%9A%E5%8A%A1%E5%BB%BA%E6%A8%A1%20-%20https://15331335.github.io/MyBlog/MyBlog/posts/ofo-%E5%85%B1%E4%BA%AB%E5%8D%95%E8%BD%A6-app-%E7%94%A8%E8%BD%A6%E4%B8%9A%E5%8A%A1%E5%BB%BA%E6%A8%A1" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://15331335.github.io/MyBlog/MyBlog/posts/ofo-%E5%85%B1%E4%BA%AB%E5%8D%95%E8%BD%A6-app-%E7%94%A8%E8%BD%A6%E4%B8%9A%E5%8A%A1%E5%BB%BA%E6%A8%A1" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=https://15331335.github.io/MyBlog/MyBlog/posts/ofo-%E5%85%B1%E4%BA%AB%E5%8D%95%E8%BD%A6-app-%E7%94%A8%E8%BD%A6%E4%B8%9A%E5%8A%A1%E5%BB%BA%E6%A8%A1" title="Share on Google+" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 128 128"><path d="M40.7 55.9v16.1c0 0 15.6 0 22 0C59.2 82.5 53.8 88.2 40.7 88.2c-13.3 0-23.7-10.8-23.7-24.2s10.4-24.2 23.7-24.2c7.1 0 11.6 2.5 15.8 5.9 3.3-3.3 3.1-3.8 11.6-11.9 -7.2-6.6-16.8-10.6-27.4-10.6C18.2 23.3 0 41.5 0 64c0 22.5 18.2 40.7 40.7 40.7 33.6 0 41.8-29.3 39-48.8H40.7zM113.9 56.7V42.6h-10.1v14.1H89.4v10.1h14.5v14.5h10.1V66.8H128V56.7H113.9z"/></svg>
+            </a>
+          </div> -->
+
+          
+        </article>
+        <footer class="footer scrollappear">
+  <p>
+    Powered by <a href="https://jekyllrb.com" rel="noreferrer noopener" target="_blank" title="Jekyll">Jekyll</a> with the theme Chalk deisgned by Nielsen Ramon.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+
+<script src="/MyBlog/assets/vendor-fc473e608b0b6ac860d7cf928f4599e674f10e478cae7f4122bc51ccf885cbe8.js" type="text/javascript"></script>
+
+
+  <script src="/MyBlog/assets/webfonts-e3010885de8c083c4b2935d463b1649e8796191a66a1b43bb87ef04bbcce420d.js" type="text/javascript"></script>
+
+
+
+  <script src="/MyBlog/assets/scrollappear-e2da8ea567e418637e31266cc5302126eaa79f62a2273739086358b589a89ee6.js" type="text/javascript"></script>
+
+
+<script src="/MyBlog/assets/application-6542ce1f4b08c8bb3dedf929d13653238a86988e0e972326e4e1f7875b1fe49f.js" type="text/javascript"></script>
+
+</body>
+</html>

@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Hiyoung | 设计模式速成指北</title>
+  <meta name="description" content="Design Patterens For Myself! 设计模式是常见问题的有效解决方法。">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="设计模式速成指北">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://15331335.github.io/MyBlog/MyBlog/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%80%9F%E6%88%90%E6%8C%87%E5%8C%97">
+  <meta property="og:description" content="Design Patterens For Myself! 设计模式是常见问题的有效解决方法。">
+  <meta property="og:site_name" content="Hiyoung">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://15331335.github.io/MyBlog/MyBlog/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%80%9F%E6%88%90%E6%8C%87%E5%8C%97">
+  <meta name="twitter:title" content="设计模式速成指北">
+  <meta name="twitter:description" content="Design Patterens For Myself! 设计模式是常见问题的有效解决方法。">
+
+  
+    
+      <meta property="og:image" content="https://15331335.github.io/MyBlog/MyBlog/assets/documentation/sample-image-0a264584b152aa8d86f61525d05ae1131787d0a1029aa1cb7e3e4148b5d34755.jpg">
+      <meta name="twitter:image" content="https://15331335.github.io/MyBlog/MyBlog/assets/documentation/sample-image-0a264584b152aa8d86f61525d05ae1131787d0a1029aa1cb7e3e4148b5d34755.jpg">
+    
+  
+
+  <link href="https://15331335.github.io/MyBlog/MyBlog/feed.xml" type="application/rss+xml" rel="alternate" title="Hiyoung Last 10 blog posts" />
+
+  
+
+  
+    <link rel="icon" type="image/x-icon" href="/MyBlog/assets/favicon-light-a98c41efc5ed9fcc06ac664c9e2f7a9b3c3b2e0a52357d221fe382f6f4abc8fc.ico">
+    <link rel="apple-touch-icon" href="/MyBlog/assets/apple-touch-icon-light-87d1f2a3a19b1500e5c1626a0492025ca5f7f97d24540dc5900288e92112925a.png">
+    <link rel="stylesheet" type="text/css" href="/MyBlog/assets/light-be96862508b7bb4497911637fbbdd848a1317f8c6ae4a6b2a82c6f88a3f35bf7.css">
+  
+
+  <script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav scrollappear">
+  <a href="/MyBlog/" class="header-logo" title="Hiyoung">Hiyoung</a>
+  <ul class="header-links">
+    
+      <li>
+        <a href="/MyBlog/about" title="About me">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-about">
+  <use href="/MyBlog/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about" xlink:href="/MyBlog/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://github.com/15331335" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/MyBlog/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github" xlink:href="/MyBlog/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:hiyoungtsui@gmail.com" title="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-email">
+  <use href="/MyBlog/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email" xlink:href="/MyBlog/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+  </ul>
+</nav>
+
+        <article class="article scrollappear">
+          <header class="article-header">
+            <h1>设计模式速成指北</h1>
+            <p>Design Patterens For Myself! 设计模式是常见问题的有效解决方法。</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                July 22, 2018
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  15 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/MyBlog/tag/design">design</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <h2 id="在此之前">在此之前</h2>
+
+<ul>
+  <li>这是个人学习笔记，内容的伪代码均为 free style 以方便理解，并不遵循特定语法规则。</li>
+  <li>个人认为这些设计模式的优势通常与项目规模正相关，而内容中采用的例子可能过于简单容易出现「过度设计」的误解。</li>
+  <li>结构和内容参考了 <a href="https://github.com/kamranahmedse/design-patterns-for-humans"><strong>design-patterns-for-humans</strong></a> 和 <a href="http://www.runoob.com/design-pattern/design-pattern-tutorial.html"><strong>菜鸟教程的设计模式</strong></a> 等有用的链接。</li>
+  <li>$6 + 7 + 10 = 23$</li>
+</ul>
+
+<h2 id="creational">Creational</h2>
+
+<p>这类设计模式关注：</p>
+
+<ul>
+  <li>如何实例化</li>
+  <li>如何组织对象</li>
+</ul>
+
+<h3 id="简单工厂">简单工厂</h3>
+
+<p>首先来看一个接口和一个实现类：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Person</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">getName</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Worker</span> <span class="kd">implements</span> <span class="n">Person</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">name</span><span class="o">;</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">n</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">name</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>下面是简单工厂类：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SimpleFactory</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">employWorker</span><span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Worker</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>显然简单的事情变复杂了，这种时候我们一般直接创建对象而不是通过工厂。而工厂模式的优势是在于<strong>创建一个对象的时候涉及逻辑判断</strong>的情况，如下：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Person</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Worker</span> <span class="kd">implements</span> <span class="n">Person</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Manager</span> <span class="kd">implements</span> <span class="n">Person</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Factory</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">employ</span><span class="o">(</span><span class="n">type</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">type</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">Worker</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">Manager</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>进一步而言，工厂可以封装从特征推导类型的逻辑：</p>
+
+<script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.js"></script>
+<div class="mermaid">
+graph LR
+a[特征1] --&gt; c[工厂]
+b[特征2] --&gt; c
+e[...] --&gt; c
+c--类型--&gt;d[对象]
+</div>
+
+<p>这样的好处是在<strong>经常创建不定类型的对象</strong>时不用重复太多的代码。</p>
+
+<h3 id="工厂方法">工厂方法</h3>
+
+<p>同样地，先来看下面「老师」的接口和实现类：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Teacher</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">teach</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">ChineseTeacher</span> <span class="kd">implements</span> <span class="n">Teacher</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">teach</span><span class="o">()</span> <span class="o">{</span> <span class="cm">/* Chinese */</span> <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">EnglishTeacher</span> <span class="kd">implements</span> <span class="n">Teacher</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">teach</span><span class="o">()</span> <span class="o">{</span> <span class="cm">/* English */</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>接着是一个「课程」的抽象类及其继承：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Course</span> <span class="o">{</span>
+    <span class="c1">// factory method</span>
+    <span class="kd">abstract</span> <span class="n">func</span> <span class="nf">getTeacher</span><span class="o">();</span>
+    
+    <span class="n">func</span> <span class="nf">take</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">getTeacher</span><span class="o">-&gt;</span><span class="n">teach</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">ChineseCourse</span> <span class="kd">extends</span> <span class="n">Course</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="n">getTeacher</span> <span class="o">{</span> <span class="k">return</span> <span class="k">new</span> <span class="n">ChineseTeacher</span><span class="o">();</span> <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">EnglishCourse</span> <span class="kd">extends</span> <span class="n">Course</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="n">getTeacher</span> <span class="o">{</span> <span class="k">return</span> <span class="k">new</span> <span class="n">EnglishTeacher</span><span class="o">();</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>那么就可以开始「上课」了：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">var</span> <span class="n">C</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ChineseCourse</span><span class="o">();</span>
+<span class="n">C</span><span class="o">-&gt;</span><span class="n">take</span><span class="o">()</span>
+</code></pre></div></div>
+
+<p>从调用链来看，我们关注中间的工厂方法：</p>
+
+<script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.js"></script>
+<div class="mermaid">
+graph LR
+a[take] --&gt; b[getTeacher]
+b --&gt; c[teach]
+</div>
+
+<p>对比工厂方法和简单工厂：前者所谓的工厂是类的一个方法，而后者工厂本身就是一个类；两者类似的情况，一个类的方法所依赖的子类在运行时动态地确定。</p>
+
+<h3 id="抽象工厂">抽象工厂</h3>
+
+<p>简而言之，工厂们的工厂。下面是一个现实世界的例子：</p>
+
+<ul>
+  <li>门（接口）有两种（实现类）：木门和铁门。</li>
+  <li>修理工（接口）有对应的两种（实现类）：焊工和木匠。</li>
+  <li>那么门的工厂也有两种：一种是可以<strong>制作</strong>木门和提供木门<strong>修理</strong>服务的工厂，另一种是铁门的。</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">DoorFactory</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">func</span> <span class="nf">makeDoor</span><span class="o">()</span> <span class="o">:</span> <span class="n">Door</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">func</span> <span class="nf">callRepairman</span><span class="o">()</span> <span class="o">:</span> <span class="n">Repairman</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>从例子中我们可以推断这个模式的使用场景：多种对象有依赖关系。换句话说，这样的抽象工厂其实是在组装多个工厂的产品。</p>
+
+<h3 id="建造者">建造者</h3>
+
+<p>考虑这样一个对象的构造函数：多可选参数或多步骤。例如，一杯可定制的「咖啡」如下：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Coffee</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">size</span><span class="o">,</span> <span class="n">sugar</span> <span class="o">=</span> <span class="kc">false</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>对于这个类，我们将其多个构造参数转换成一个建造者：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Coffee</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">size</span><span class="o">,</span> <span class="n">sugar</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">builder</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// builder is a CoffeeBuilder</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">=</span> <span class="n">builder</span><span class="o">-&gt;</span><span class="n">size</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">sugar</span> <span class="o">=</span> <span class="n">builder</span><span class="o">-&gt;</span><span class="n">sugar</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>抽象出构造者类的好处在于分离出构造参数的控制方法：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">CoffeeBuilder</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">size</span><span class="o">,</span> <span class="n">sugar</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">ice</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">=</span> <span class="n">s</span><span class="o">;</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">addSugar</span><span class="o">()</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">sugar</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">addIce</span><span class="o">()</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">ice</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span> <span class="o">}</span>
+    
+    <span class="n">func</span> <span class="nf">build</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Coffee</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>这样我们就可以优雅地喝上一小杯咖啡了：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">var</span> <span class="n">coffee</span> <span class="o">=</span> <span class="o">(</span><span class="k">new</span> <span class="n">CoffeeBuilder</span><span class="o">(</span><span class="n">small</span><span class="o">))-&gt;</span><span class="n">addSugar</span><span class="o">()-&gt;</span><span class="n">build</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>整个模式的过程是这样的：</p>
+
+<script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.js"></script>
+<div class="mermaid">
+graph LR
+a[建造者] --1.调参--&gt; a
+a --2.建造--&gt; b[对象]
+b --3.引用--&gt; a
+</div>
+
+<p>显然，这样做可以避免构造函数的冗长，而区别于工厂的单步构造，建造者是针对多步的。</p>
+
+<h3 id="原型">原型</h3>
+
+<p>可以这么说，把一个对象作为原型，其他的对象可以<strong>根据原型来克隆</strong>或构造。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">var</span> <span class="n">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Sheep</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+<span class="n">prototype</span><span class="o">-&gt;</span><span class="n">getName</span><span class="o">();</span>  <span class="c1">// name</span>
+<span class="n">var</span> <span class="n">cloned</span> <span class="o">=</span> <span class="n">prototype</span><span class="o">-&gt;</span><span class="n">clone</span><span class="o">();</span>
+<span class="n">cloned</span><span class="o">-&gt;</span><span class="n">setName</span><span class="o">(</span><span class="err">'</span><span class="n">Dolly</span><span class="err">'</span><span class="o">);</span>
+<span class="n">cloned</span><span class="o">-&gt;</span><span class="n">getName</span><span class="o">();</span>  <span class="c1">// 'Dolly'</span>
+</code></pre></div></div>
+
+<p>直观感受就是对象的深拷贝。</p>
+
+<h3 id="单例">单例</h3>
+
+<p>一句话，类的对象只有一个。</p>
+
+<ul>
+  <li>作为一种全局状态，好处是避免类的过度使用。</li>
+  <li>可能使得代码高耦合。</li>
+</ul>
+
+<p>常见的做法是：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">final</span> <span class="kd">class</span> <span class="nc">Life</span> <span class="o">{</span>
+    <span class="kd">private</span><span class="o">:</span>
+    	<span class="n">var</span> <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Life</span><span class="o">();</span>  <span class="c1">// Always static!</span>
+    	<span class="n">func</span> <span class="nf">__construct</span><span class="o">()</span> <span class="o">{</span> <span class="cm">/* hide */</span> <span class="o">}</span>
+    	<span class="n">func</span> <span class="nf">__clone</span><span class="o">()</span> <span class="o">{</span> <span class="cm">/* disable */</span> <span class="o">}</span>
+   	<span class="kd">public</span><span class="o">:</span>
+    	<span class="n">func</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">instance</span>
+    	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>使用的时候：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Life</span> <span class="n">mine</span> <span class="o">=</span> <span class="n">Life</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>  <span class="c1">// rather than 'new Life()'</span>
+</code></pre></div></div>
+
+<h2 id="structural">Structural</h2>
+
+<p>这类设计模式关注：</p>
+
+<ul>
+  <li>对象的组成或实体的关联</li>
+  <li>组件化</li>
+</ul>
+
+<h3 id="适配器">适配器</h3>
+
+<p>假设在一个游戏中，「猎人」可以狩猎兔子和狗：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Prey</span> <span class="o">{</span> <span class="n">func</span> <span class="nf">flee</span><span class="o">();</span> <span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Rabbit</span> <span class="kd">implements</span> <span class="n">Prey</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">flee</span><span class="o">()</span> <span class="o">{</span> <span class="cm">/* run */</span> <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Dog</span> <span class="kd">implements</span> <span class="n">Prey</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">flee</span><span class="o">()</span> <span class="o">{</span> <span class="cm">/* run */</span> <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Hunter</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">hunt</span><span class="o">(</span><span class="n">prey</span><span class="o">)</span> <span class="o">{</span> <span class="n">prey</span><span class="o">-&gt;</span><span class="n">flee</span><span class="o">();</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>当游戏需要允许狩猎从未成为过猎物的老鹰时：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Hawk</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">fly</span><span class="o">()</span> <span class="o">{</span> <span class="cm">/* fly */</span> <span class="o">}</span>
+<span class="o">}</span> 
+
+<span class="c1">// Adapter</span>
+<span class="kd">class</span> <span class="nc">HawkAdapter</span> <span class="kd">implements</span> <span class="n">Prey</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">hawk</span><span class="o">;</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">hawk</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">hawk</span> <span class="o">=</span> <span class="n">hawk</span><span class="o">;</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="n">flee</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">hawk</span><span class="o">-&gt;</span><span class="n">fly</span><span class="o">();</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>从适配器的实现上不难发现：</p>
+
+<script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.js"></script>
+<div class="mermaid">
+graph LR
+a[适配器] --维护--&gt; b[对象]
+b --调用--&gt; c[方法]
+</div>
+
+<p>其内部维护了一个需要适配的新对象，并实现了原接口的方法，适配的方法就是指定原接口调用新对象的方法。</p>
+
+<h3 id="桥接">桥接</h3>
+
+<p>这个模式的思想在于<strong>选择组成</strong>而非继承：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">painting</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">style</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Landscape</span> <span class="kd">implements</span> <span class="n">painting</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">style</span><span class="o">;</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">style</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">style</span> <span class="o">=</span> <span class="n">style</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">interface</span> <span class="nc">Style</span> <span class="o">{</span> <span class="cm">/* ... */</span> <span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Oil</span> <span class="kd">implements</span> <span class="n">Style</span> <span class="o">{</span> <span class="cm">/* ... */</span> <span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Wash</span> <span class="kd">implements</span> <span class="n">Style</span> <span class="o">{</span> <span class="cm">/* ... */</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<p>上面的例子很好理解，分离了抽象和现实：</p>
+
+<script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.js"></script>
+<div class="mermaid">
+graph TD
+a[风景画]--&gt;b[画作]
+c[油画]--&gt;d[风格]
+e[水墨画]--&gt;d
+f[...]--&gt;d
+g[...]--&gt;b
+</div>
+
+<p>如果在抽象聚合关联关系时选择继承：</p>
+
+<script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.js"></script>
+<div class="mermaid">
+graph TD
+a[风景油画]--&gt;b[油画]
+b--&gt;c[画作]
+d[...]--&gt;b
+e[风景水墨画]--&gt;f[水墨画]
+g[...]--&gt;f
+f--&gt;c
+h[...]--&gt;c
+</div>
+
+<p>这样不利于解耦。</p>
+
+<h3 id="组合">组合</h3>
+
+<p>组合就是一个对象里面包含了许多同类的子对象，并为子对象进行统一的操作。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Employee</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">salary</span><span class="o">);</span>
+    <span class="n">func</span> <span class="n">get</span><span class="o">*();</span>  <span class="c1">// getter</span>
+    <span class="n">func</span> <span class="n">set</span><span class="o">*();</span>  <span class="c1">// setter</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Developer</span> <span class="kd">implements</span> <span class="n">Employee</span> <span class="o">{</span> <span class="cm">/* ... */</span> <span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Developer</span> <span class="kd">implements</span> <span class="n">Employee</span> <span class="o">{</span> <span class="cm">/* ... */</span> <span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Organization</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">employees</span> <span class="o">=</span> <span class="o">[];</span>
+    <span class="n">func</span> <span class="nf">employ</span><span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">employees</span><span class="o">-&gt;</span><span class="n">push</span><span class="o">(</span><span class="k">new</span> <span class="n">Employee</span><span class="o">(</span><span class="n">name</span><span class="o">));</span>
+    <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">listEmployees</span><span class="o">()</span> <span class="o">{</span>  <span class="c1">// in a uniform manner</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">employee</span> <span class="n">in</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">employees</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">employee</span><span class="o">-&gt;</span><span class="n">getName</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>一般的使用场景特征：操作简单，并且自由增删</p>
+
+<h3 id="装饰器">装饰器</h3>
+
+<p>装饰器的目的在于运行时包裹对象从而动态改变其行为。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Book</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">getDescription</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">OriginalBook</span> <span class="kd">implements</span> <span class="n">Book</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">getDescription</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="err">'</span><span class="n">It</span> <span class="n">is</span> <span class="n">original</span><span class="o">.</span><span class="err">'</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">// add-ons (decorators)</span>
+<span class="kd">class</span> <span class="nc">ForeignBook</span> <span class="kd">implements</span> <span class="n">Book</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">book</span><span class="o">;</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">book</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">book</span> <span class="o">=</span> <span class="n">book</span><span class="o">;</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">getDescription</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">book</span><span class="o">-&gt;</span><span class="n">getDescription</span><span class="o">()</span> <span class="o">+</span> <span class="err">'</span> <span class="n">Foreign</span><span class="o">.</span><span class="err">'</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">IllustratedBook</span> <span class="kd">implements</span> <span class="n">Book</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">book</span><span class="o">;</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">book</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">book</span> <span class="o">=</span> <span class="n">book</span><span class="o">;</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">getDescription</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">book</span><span class="o">-&gt;</span><span class="n">getDescription</span><span class="o">()</span> <span class="o">+</span> <span class="err">'</span> <span class="n">Illustrated</span><span class="o">.</span><span class="err">'</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>在使用时，可以不断地添加对于「书」的描述：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">var</span> <span class="n">book</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OriginalBook</span><span class="o">();</span>
+<span class="n">book</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ForeignBook</span><span class="o">(</span><span class="n">book</span><span class="o">);</span>
+<span class="n">book</span><span class="o">-&gt;</span><span class="n">getDescription</span><span class="o">();</span>  <span class="c1">// 'It is original. Foreign.'</span>
+<span class="n">book</span> <span class="o">=</span> <span class="k">new</span> <span class="n">IllustratedBook</span><span class="o">(</span><span class="n">book</span><span class="o">);</span>
+<span class="n">book</span><span class="o">-&gt;</span><span class="n">getDescription</span><span class="o">();</span>  <span class="c1">// 'It is original. Foreign. Illustrated.'</span>
+</code></pre></div></div>
+
+<p>不想增加很多子类而扩展类的时候可以使用装饰器。</p>
+
+<h3 id="外观">外观</h3>
+
+<p>隐藏复杂系统，提供简单接口。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Computer</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">stepA</span><span class="o">()</span> <span class="o">{</span> <span class="cm">/* return this; */</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">stepB</span><span class="o">()</span> <span class="o">{</span> <span class="cm">/* ... */</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">stepC</span><span class="o">()</span> <span class="o">{</span> <span class="cm">/* ... */</span> <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">ComputerFacade</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">computer</span><span class="o">;</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">computer</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">computer</span> <span class="o">=</span> <span class="n">computer</span><span class="o">;</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">turnOn</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">computer</span><span class="o">-&gt;</span><span class="n">stepA</span><span class="o">();</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">computer</span><span class="o">-&gt;</span><span class="n">stepB</span><span class="o">();</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">computer</span><span class="o">-&gt;</span><span class="n">stepC</span><span class="o">();</span>
+        <span class="c1">// this-&gt;computer-&gt;stepA()-&gt;stepB()-stepC();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>这是一个典型的例子，电脑的启动过程包含诸多系统步骤（如启动处理器、启动存储器等），而暴露给用户的只有一个操作，就是按下电源键。</p>
+
+<h3 id="享元">享元</h3>
+
+<p>思想是通过<strong>缓存</strong>的方式减少存储或计算的开销。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Tool</span> <span class="o">{</span> <span class="cm">/* type &amp; ... */</span> <span class="o">}</span>
+
+<span class="c1">// Anything that will be cached is flyweight.</span>
+<span class="kd">class</span> <span class="nc">Toolbox</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">tools</span> <span class="o">=</span> <span class="o">[];</span>
+    <span class="n">func</span> <span class="nf">getTool</span><span class="o">(</span><span class="n">type</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">tools</span><span class="o">[</span><span class="n">type</span><span class="o">]-&gt;</span><span class="n">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">-&gt;</span><span class="n">tools</span><span class="o">[</span><span class="n">type</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Tool</span><span class="o">[</span><span class="n">type</span><span class="o">];</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">tools</span><span class="o">[</span><span class="n">type</span><span class="o">];</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Repairman</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">toolbox</span><span class="o">;</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">toolbox</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">toolbox</span> <span class="o">=</span> <span class="n">toolbox</span><span class="o">;</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">check</span><span class="o">(</span><span class="n">type</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">toolbox</span><span class="o">-&gt;</span><span class="n">getTool</span><span class="o">(</span><span class="n">type</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// repair</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>这个现实的例子是：修理工有一个工具箱，每当需要一种工具时先检查工具箱，如果没有则购买新的并放进去，这样以后可以反复使用不用每次修理都购买新的工具。</p>
+
+<h3 id="代理">代理</h3>
+
+<p>典型解释是一个类代表另一个类的功能。</p>
+
+<p>下面的例子描述了使用代理购买东西的情形，可以看到我们只需要付钱收货即可，前前后后的繁琐事情都在代理中被处理了。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Abstract</span> <span class="o">{</span> <span class="n">func</span> <span class="nf">buy</span><span class="o">(</span><span class="n">something</span><span class="o">);</span> <span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Real</span> <span class="kd">implements</span> <span class="n">Abstract</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">buy</span><span class="o">(</span><span class="n">something</span><span class="o">)</span> <span class="o">{</span> <span class="cm">/* pay */</span> <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Prxoy</span> <span class="kd">implements</span> <span class="n">Abstract</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">real</span><span class="o">;</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">real</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">real</span> <span class="o">=</span> <span class="n">real</span><span class="o">;</span> <span class="o">}</span>
+    <span class="n">fun</span> <span class="nf">buy</span><span class="o">(</span><span class="n">something</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// sth. tedious before</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">real</span><span class="o">-&gt;</span><span class="n">buy</span><span class="o">(</span><span class="n">something</span><span class="o">);</span>
+        <span class="c1">// sth. tedious after</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>重点在于：代理持有真实对象的引用。不同于类的简单组合，代理与真实对象都是同一个抽象接口的实现。</p>
+
+<h2 id="behavioral">Behavioral</h2>
+
+<p>这类设计模式关注：</p>
+
+<ul>
+  <li>对象间职责的分配</li>
+  <li>信息交流</li>
+</ul>
+
+<h3 id="责任链">责任链</h3>
+
+<p>通过创建一条对象链，使得请求沿着链找到合适的响应方法。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Account</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">balance</span><span class="o">;</span>
+    <span class="n">var</span> <span class="n">next</span><span class="o">;</span>
+    <span class="n">func</span> <span class="nf">setNext</span><span class="o">(</span><span class="n">account</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">account</span><span class="o">;</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">pay</span><span class="o">(</span><span class="n">amount</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">balance</span> <span class="o">&gt;=</span> <span class="n">amount</span><span class="o">)</span> <span class="o">{</span> <span class="cm">/* pay it */</span> <span class="o">}</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">pay</span><span class="o">(</span><span class="n">amount</span><span class="o">)</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span> <span class="cm">/* not afford */</span> <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">PocketMoney</span> <span class="kd">extends</span> <span class="n">Account</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">balance</span><span class="o">;</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">money</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">balance</span> <span class="o">=</span> <span class="n">money</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">BankCard</span> <span class="kd">extends</span> <span class="n">Account</span> <span class="o">{</span> <span class="cm">/* ... */</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<p>当我们支付的时候，如果零钱不够就用银行卡：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">var</span> <span class="n">pocketmoney</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PocketMoney</span><span class="o">(</span><span class="mi">200</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">bankcard</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BankCard</span><span class="o">(</span><span class="mi">500</span><span class="o">);</span>
+
+<span class="c1">// a chain: $PocketMoney-&gt;$BankCard</span>
+<span class="n">pocketmoney</span><span class="o">-&gt;</span><span class="n">setNext</span><span class="o">(</span><span class="n">bankcard</span><span class="o">);</span>
+
+<span class="n">pocketmoney</span><span class="o">-&gt;</span><span class="n">pay</span><span class="o">(</span><span class="mi">150</span><span class="o">);</span>  <span class="c1">// use PocketMoney</span>
+<span class="n">pocketmoney</span><span class="o">-&gt;</span><span class="n">pay</span><span class="o">(</span><span class="mi">300</span><span class="o">);</span>  <span class="c1">// use BankCard</span>
+</code></pre></div></div>
+
+<p>在这种模式中：</p>
+
+<ul>
+  <li>通常每个接收者都包含对另一个接收者的引用。</li>
+  <li>如果一个对象不能处理该请求，那么它会把相同的请求传给下一个接收者，依此类推。</li>
+</ul>
+
+<h3 id="命令">命令</h3>
+
+<p>通过封装动作对 <code class="highlighter-rouge">client</code> 和 <code class="highlighter-rouge">receiver</code> 解耦：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Receiver</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">add</span><span class="o">()</span> <span class="o">{</span> <span class="cm">/* +1 */</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">subtract</span><span class="o">()</span> <span class="o">{</span> <span class="cm">/* -1 */</span> <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">interface</span> <span class="nc">Command</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">execute</span><span class="o">();</span>
+    <span class="n">func</span> <span class="nf">undo</span><span class="o">();</span>
+    <span class="n">func</span> <span class="nf">redo</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Addition</span> <span class="kd">implements</span> <span class="n">Command</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">receiver</span><span class="o">;</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">receiver</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">receiver</span> <span class="o">=</span> <span class="n">receiver</span><span class="o">;</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">execute</span><span class="o">()</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">receiver</span><span class="o">-&gt;</span><span class="n">add</span><span class="o">();</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">undo</span><span class="o">()</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">receiver</span><span class="o">-&gt;</span><span class="n">subtract</span><span class="o">();</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">redo</span><span class="o">()</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">execute</span><span class="o">();</span> <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Subtraction</span> <span class="kd">implements</span> <span class="n">Command</span> <span class="o">{</span> <span class="cm">/* ... */</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<p>类似于遥控器的远程控制：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Invoker</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">submit</span><span class="o">(</span><span class="n">command</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">command</span><span class="o">-&gt;</span><span class="n">execute</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>这样就可以通过构造命令并发送来控制接收端：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">var</span> <span class="n">receiver</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Receiver</span><span class="o">();</span>
+<span class="n">var</span> <span class="n">addition</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Addition</span><span class="o">(</span><span class="n">receiver</span><span class="o">)</span>
+<span class="n">var</span> <span class="n">invoker</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Invoker</span><span class="o">()</span>
+<span class="n">invokere</span><span class="o">-&gt;</span><span class="n">submit</span><span class="o">(</span><span class="n">addition</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>一个常见的使用场景就是上述存在 <code class="highlighter-rouge">undo</code> 操作的事务。</p>
+
+<h3 id="迭代器">迭代器</h3>
+
+<p>一种访问对象元素的方式，关键在于无需知道底层的表示。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Iterator</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">hasNext</span><span class="o">();</span>
+    <span class="n">func</span> <span class="nf">getNext</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">interface</span> <span class="nc">Container</span> <span class="o">{</span>
+   	<span class="n">func</span> <span class="nf">getIterator</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>下面实现一个支持迭代访问的类：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Repository</span> <span class="kd">implements</span> <span class="n">Container</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">elements</span> <span class="o">=</span> <span class="o">[</span> <span class="cm">/* ... */</span> <span class="o">];</span>
+    <span class="n">func</span> <span class="nf">getIterator</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">RepoIterator</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">RepoIterator</span> <span class="kd">implements</span> <span class="n">Iterator</span> <span class="o">{</span>
+        <span class="n">var</span> <span class="n">index</span><span class="o">;</span>
+        <span class="n">func</span> <span class="nf">hasNext</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">that</span><span class="o">-&gt;</span><span class="n">elements</span><span class="o">-&gt;</span><span class="n">len</span><span class="o">())</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="k">else</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">func</span> <span class="nf">getNext</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">hasNext</span><span class="o">())</span> <span class="k">return</span> <span class="n">that</span><span class="o">-&gt;</span><span class="n">elements</span><span class="o">[</span><span class="n">index</span><span class="o">++];</span>
+            <span class="k">else</span> <span class="k">return</span> <span class="n">NULL</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>迭代器的实现有赖于具体的语法规则。</p>
+
+<h3 id="中介者">中介者</h3>
+
+<p>目的是降低类间交互造成的耦合。</p>
+
+<p>典型的聊天室例子：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Mediator</span>
+<span class="kd">class</span> <span class="nc">ChatRoom</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">showMessage</span><span class="o">(</span><span class="n">user</span><span class="o">,</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// show 'time, username &amp; message'</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">name</span><span class="o">,</span> <span class="n">chatMediator</span><span class="o">;</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">chatMediator</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">chatMediator</span> <span class="o">=</span> <span class="n">chatMediator</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">send</span><span class="o">(</span><span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">chatMediator</span><span class="o">-&gt;</span><span class="n">showMessage</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">message</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>用户可以直接在聊天室中通信，注意到每个用户包含同样的中介者引用，这样网状的通信结构转换成了星型结构。</p>
+
+<h3 id="备忘录">备忘录</h3>
+
+<p>在游戏中的存档功能：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Memento</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">content</span><span class="o">;</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">content</span><span class="o">)</span> <span class="o">{</span> <span class="cm">/* ...*/</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">getContent</span><span class="o">()</span> <span class="o">{</span> <span class="cm">/* ... */</span> <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Game</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">temp</span><span class="o">,</span> <span class="n">saved</span><span class="o">;</span>  <span class="c1">// Memento</span>
+    <span class="n">func</span> <span class="nf">load</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">saved</span><span class="o">-&gt;</span><span class="n">getContent</span><span class="o">();</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">save</span><span class="o">()</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">saved</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Memento</span><span class="o">(</span><span class="n">temp</span><span class="o">);</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>合适的使用场景是：</p>
+
+<ul>
+  <li>需要保存/恢复数据的相关状态场景</li>
+  <li>提供一个可回滚的操作</li>
+</ul>
+
+<h3 id="观察者">观察者</h3>
+
+<p>这是对象之间的一种依赖：一个对象状态改变，告知它的观察者。</p>
+
+<p>在实现上不难理解，只要对象持有观察者引用即可：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Obj</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">state</span><span class="o">,</span> <span class="n">observers</span> <span class="o">=</span> <span class="o">[];</span>
+    <span class="n">func</span> <span class="nf">notify</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">observer</span> <span class="n">in</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">observers</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">observer</span><span class="o">-&gt;</span><span class="n">update</span><span class="o">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">state</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">change</span><span class="o">(</span><span class="n">state</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">notify</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>建立一套触发机制，注意避免循环依赖。</p>
+
+<h3 id="访问者">访问者</h3>
+
+<p>在访问者中动态地修改关于对象的执行逻辑，而不修改对象。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Visitee</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">accept</span><span class="o">(</span><span class="n">operation</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">interface</span> <span class="nc">Visitor</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">visitButton</span><span class="o">(</span><span class="n">button</span><span class="o">);</span>
+    <span class="n">func</span> <span class="nf">visitSlider</span><span class="o">(</span><span class="n">slider</span><span class="o">);</span>
+    <span class="c1">// overload: visit($element);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>其中 <code class="highlighter-rouge">Visitor</code> 的访问方法可以根据语法规则使用重载。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Button</span> <span class="kd">implements</span> <span class="n">Visitee</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">click</span><span class="o">()</span> <span class="o">{</span> <span class="cm">/* ... */</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">accept</span><span class="o">(</span><span class="n">operation</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">operation</span><span class="o">-&gt;</span><span class="n">visitButton</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Slider</span> <span class="kd">implements</span> <span class="n">Visitee</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">drag</span><span class="o">()</span> <span class="o">{</span> <span class="cm">/* ... */</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">accept</span><span class="o">(</span><span class="n">operation</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">operation</span><span class="o">-&gt;</span><span class="n">visitSlider</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">UIOperation</span> <span class="kd">implements</span> <span class="n">Visitor</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">visitButton</span><span class="o">(</span><span class="n">button</span><span class="o">)</span> <span class="o">{</span> <span class="n">button</span><span class="o">-&gt;</span><span class="n">click</span><span class="o">();</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">visitSlider</span><span class="o">(</span><span class="n">slider</span><span class="o">)</span> <span class="o">{</span> <span class="n">slider</span><span class="o">-&gt;</span><span class="n">drag</span><span class="o">();</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>对于 UI 控件进行功能统一：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">var</span> <span class="n">operation</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UIOperation</span><span class="o">;</span>
+<span class="c1">// ...</span>
+<span class="n">button</span><span class="o">-&gt;</span><span class="n">accept</span><span class="o">(</span><span class="n">operation</span><span class="o">);</span>  <span class="c1">// click button</span>
+<span class="n">slider</span><span class="o">-&gt;</span><span class="n">accept</span><span class="o">(</span><span class="n">operation</span><span class="o">);</span>  <span class="c1">// drag slider</span>
+</code></pre></div></div>
+
+<p>整个过程是这样的：</p>
+
+<script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.js"></script>
+<div class="mermaid">
+graph LR
+a[UI控件]--接受--&gt;b[统一的UI操作]
+b--访问--&gt;c[当前UI控件的引用]
+c--调用--&gt;d[真正执行的操作]
+</div>
+
+<p>上面是一个常见的使用场景，解决稳定的数据结构和易变的操作耦合问题。</p>
+
+<h3 id="策略">策略</h3>
+
+<p>允许切换算法。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Strategy</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">sort</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">BubbleSort</span> <span class="kd">implements</span> <span class="n">Strategy</span> <span class="o">{</span> <span class="cm">/* ... */</span> <span class="o">}</span>
+<span class="kd">class</span> <span class="nc">QuickSort</span> <span class="kd">implements</span> <span class="n">Strategy</span> <span class="o">{</span> <span class="cm">/* ... */</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<p>我们需要抽象上下文来封装策略引用：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Context</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">strategy</span><span class="o">;</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">algorithm</span><span class="o">)</span> <span class="o">{</span>  <span class="c1">// strategy is algorithm</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">algorithm</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">sort</span><span class="o">(</span><span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">strategy</span><span class="o">-&gt;</span><span class="n">sort</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>这样在运行时根据情况生成包含策略算法的实例：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">var</span> <span class="n">sorter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Context</span><span class="o">(</span><span class="k">new</span> <span class="n">BubbleSort</span><span class="o">());</span>
+<span class="c1">// or 'var sorter = new Context(new QuickSort());'</span>
+</code></pre></div></div>
+
+<p>可以避免因为使用条件语句所带来的复杂和难以维护。</p>
+
+<h3 id="状态">状态</h3>
+
+<p>当状态改变时，改变对象的行为。</p>
+
+<p>这个设计模式很好理解也非常常见，实现的方法是：</p>
+
+<ul>
+  <li>对于状态设计一个接口，并允许修改</li>
+  <li>封装状态在对象中维护</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">State</span> <span class="o">{</span>
+    <span class="n">func</span> <span class="nf">action</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">StartState</span> <span class="kd">implements</span> <span class="n">State</span> <span class="o">{</span> <span class="cm">/* ... */</span> <span class="o">}</span>
+<span class="kd">class</span> <span class="nc">EndState</span> <span class="kd">implements</span> <span class="n">State</span> <span class="o">{</span> <span class="cm">/* ... */</span> <span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Obj</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">state</span><span class="o">;</span>
+    <span class="n">func</span> <span class="nf">__construct</span><span class="o">(</span><span class="n">state</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span><span class="o">;</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">setState</span><span class="o">(</span><span class="n">state</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span><span class="o">;</span> <span class="o">}</span>
+    <span class="n">func</span> <span class="nf">doSomething</span><span class="o">()</span> <span class="o">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">state</span><span class="o">-&gt;</span><span class="n">action</span><span class="o">();</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>一句话，类的行为是基于其状态的。</p>
+
+<h3 id="模板方法">模板方法</h3>
+
+<p>在抽象类实现通用的方法，而其他的步骤在子类实现。</p>
+
+<p>下面是一个很好的自动化构建例子：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Builder</span> <span class="o">{</span>
+    <span class="c1">// Template method</span>
+    <span class="n">func</span> <span class="nf">build</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">test</span><span class="o">()-&gt;</span><span class="n">lint</span><span class="o">()-&gt;</span><span class="n">assemble</span><span class="o">()-&gt;</span><span class="n">deploy</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="n">func</span> <span class="nf">test</span><span class="o">();</span>
+    <span class="n">func</span> <span class="nf">lint</span><span class="o">();</span>
+    <span class="n">func</span> <span class="nf">assemble</span><span class="o">();</span>
+    <span class="n">func</span> <span class="nf">deploy</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>采用同样的构建流程，而前后端的构建细节不同：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">FrontEndBuilder</span> <span class="kd">extends</span> <span class="n">Builder</span> <span class="o">{</span> <span class="cm">/* implementations */</span> <span class="o">}</span>
+<span class="kd">class</span> <span class="nc">BackEndBuilder</span> <span class="kd">extends</span> <span class="n">Builder</span> <span class="o">{</span> <span class="cm">/* implementations */</span> <span class="o">}</span>
+
+<span class="c1">// usage</span>
+<span class="n">var</span> <span class="n">backend</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BackEndBuilder</span><span class="o">();</span>
+<span class="n">backend</span><span class="o">-&gt;</span><span class="n">build</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>可以看到：定义一个操作中的算法骨架，而将一些步骤延迟到子类中，使得子类不改变算法结构即可重定义该算法的某些特定步骤。</p>
+
+<h2 id="写在后面">写在后面</h2>
+
+<ul>
+  <li>受限于个人知识，内容难免差错。</li>
+  <li>对于设计模式的使用域问题没有过多强调，希望只要代码优雅即可。</li>
+</ul>
+
+          </div>
+
+          <!-- <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%80%9F%E6%88%90%E6%8C%87%E5%8C%97%20-%20https://15331335.github.io/MyBlog/MyBlog/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%80%9F%E6%88%90%E6%8C%87%E5%8C%97" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://15331335.github.io/MyBlog/MyBlog/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%80%9F%E6%88%90%E6%8C%87%E5%8C%97" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=https://15331335.github.io/MyBlog/MyBlog/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%80%9F%E6%88%90%E6%8C%87%E5%8C%97" title="Share on Google+" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 128 128"><path d="M40.7 55.9v16.1c0 0 15.6 0 22 0C59.2 82.5 53.8 88.2 40.7 88.2c-13.3 0-23.7-10.8-23.7-24.2s10.4-24.2 23.7-24.2c7.1 0 11.6 2.5 15.8 5.9 3.3-3.3 3.1-3.8 11.6-11.9 -7.2-6.6-16.8-10.6-27.4-10.6C18.2 23.3 0 41.5 0 64c0 22.5 18.2 40.7 40.7 40.7 33.6 0 41.8-29.3 39-48.8H40.7zM113.9 56.7V42.6h-10.1v14.1H89.4v10.1h14.5v14.5h10.1V66.8H128V56.7H113.9z"/></svg>
+            </a>
+          </div> -->
+
+          
+        </article>
+        <footer class="footer scrollappear">
+  <p>
+    Powered by <a href="https://jekyllrb.com" rel="noreferrer noopener" target="_blank" title="Jekyll">Jekyll</a> with the theme Chalk deisgned by Nielsen Ramon.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+
+<script src="/MyBlog/assets/vendor-fc473e608b0b6ac860d7cf928f4599e674f10e478cae7f4122bc51ccf885cbe8.js" type="text/javascript"></script>
+
+
+  <script src="/MyBlog/assets/webfonts-e3010885de8c083c4b2935d463b1649e8796191a66a1b43bb87ef04bbcce420d.js" type="text/javascript"></script>
+
+
+
+  <script src="/MyBlog/assets/scrollappear-e2da8ea567e418637e31266cc5302126eaa79f62a2273739086358b589a89ee6.js" type="text/javascript"></script>
+
+
+<script src="/MyBlog/assets/application-6542ce1f4b08c8bb3dedf929d13653238a86988e0e972326e4e1f7875b1fe49f.js" type="text/javascript"></script>
+
+</body>
+</html>

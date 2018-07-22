@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Hiyoung | 论文笔记 3</title>
+  <meta name="description" content="该笔记所阅读的论文为 Sai Wu 的 Personal Recommendation Using Deep Recurrent Neural Networks in NetEase 。">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="论文笔记 3">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://15331335.github.io/MyBlog/MyBlog/posts/personal-recommendation-using-deep-recurrent-neural-networks-in-netease">
+  <meta property="og:description" content="该笔记所阅读的论文为 Sai Wu 的 Personal Recommendation Using Deep Recurrent Neural Networks in NetEase 。">
+  <meta property="og:site_name" content="Hiyoung">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://15331335.github.io/MyBlog/MyBlog/posts/personal-recommendation-using-deep-recurrent-neural-networks-in-netease">
+  <meta name="twitter:title" content="论文笔记 3">
+  <meta name="twitter:description" content="该笔记所阅读的论文为 Sai Wu 的 Personal Recommendation Using Deep Recurrent Neural Networks in NetEase 。">
+
+  
+    
+      <meta property="og:image" content="https://15331335.github.io/MyBlog/MyBlog/assets/documentation/sample-image-0a264584b152aa8d86f61525d05ae1131787d0a1029aa1cb7e3e4148b5d34755.jpg">
+      <meta name="twitter:image" content="https://15331335.github.io/MyBlog/MyBlog/assets/documentation/sample-image-0a264584b152aa8d86f61525d05ae1131787d0a1029aa1cb7e3e4148b5d34755.jpg">
+    
+  
+
+  <link href="https://15331335.github.io/MyBlog/MyBlog/feed.xml" type="application/rss+xml" rel="alternate" title="Hiyoung Last 10 blog posts" />
+
+  
+
+  
+    <link rel="icon" type="image/x-icon" href="/MyBlog/assets/favicon-light-a98c41efc5ed9fcc06ac664c9e2f7a9b3c3b2e0a52357d221fe382f6f4abc8fc.ico">
+    <link rel="apple-touch-icon" href="/MyBlog/assets/apple-touch-icon-light-87d1f2a3a19b1500e5c1626a0492025ca5f7f97d24540dc5900288e92112925a.png">
+    <link rel="stylesheet" type="text/css" href="/MyBlog/assets/light-be96862508b7bb4497911637fbbdd848a1317f8c6ae4a6b2a82c6f88a3f35bf7.css">
+  
+
+  <script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav scrollappear">
+  <a href="/MyBlog/" class="header-logo" title="Hiyoung">Hiyoung</a>
+  <ul class="header-links">
+    
+      <li>
+        <a href="/MyBlog/about" title="About me">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-about">
+  <use href="/MyBlog/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about" xlink:href="/MyBlog/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://github.com/15331335" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/MyBlog/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github" xlink:href="/MyBlog/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:hiyoungtsui@gmail.com" title="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-email">
+  <use href="/MyBlog/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email" xlink:href="/MyBlog/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+  </ul>
+</nav>
+
+        <article class="article scrollappear">
+          <header class="article-header">
+            <h1>论文笔记 3</h1>
+            <p>该笔记所阅读的论文为 Sai Wu 的 Personal Recommendation Using Deep Recurrent Neural Networks in NetEase 。</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                June 11, 2018
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  1 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/MyBlog/tag/reading">reading</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <h2 id="论文概述">论文概述</h2>
+
+<p>该论文通过构建一个<strong>深度循环神经网络</strong>模型来解决一个系统推荐的问题：</p>
+
+<ul>
+  <li>无法利用用户<strong>当前的</strong>浏览历史来提供<strong>实时的</strong>定制化推荐服务。</li>
+</ul>
+
+<p>这个网络来用隐层来对用户访问过的网页进行<strong>组合和顺序</strong>上的建模。同时通过将旧的状态整合为<strong>单一的历史状态</strong>的方法来记录有限的状态数量，从而实现降低处理成本。</p>
+
+<p>模型在用户每次打开新网页时刷新推荐结果，并随着用户会话的进行，模型的推荐结果会不断的精细化。</p>
+
+<h3 id="背景介绍">背景介绍</h3>
+
+<p>协同过滤算法：</p>
+
+<ul>
+  <li>基于用户与事物项之间的关联来预测用户选择每个项的概率。</li>
+  <li>缺点是依赖静态数据，无法实现定制化选择。</li>
+</ul>
+
+<p>从该论文给出的场景示意图中可以发现：</p>
+
+<ul>
+  <li>基本属性</li>
+  <li><strong>浏览行为的数据</strong>（协同过滤算法缺失）</li>
+</ul>
+
+<p>没有特殊信息可以获取时，回到使用协同过滤算法给出结果。</p>
+
+<ul>
+  <li>历史的购买记录</li>
+  <li>当前的浏览记录</li>
+</ul>
+
+<p>这个任务的挑战在于：</p>
+
+<ul>
+  <li>网页数量大，如果每个网页代表一个状态，则用户的会话就成了一个随机的状态组合，向量的学习就会非常复杂。</li>
+  <li>访问的网页具有层级结构，想要对网页的访问顺序敏感，并能承受高并发。</li>
+  <li>训练集由用户的历史访问日志和最终购买组成，这是一个不断更新的集合，模型并不是一次训练而成，必须能够实时响应新的用户特征。</li>
+</ul>
+
+<p>用户的访问特征：页面的顺序显示了用户到目标的路径。 DRNN 目标在于得到一个实时的推荐系统能缩短这个路径。</p>
+
+<p>窗口大小在精确度与复杂度之间的权衡，将历史记录简化为单一虚拟历史状态与当前活跃的记录状态结合。</p>
+
+<p>前馈神经网络模拟协同过滤算法，输入历史购买向量，输出购买某项的预测概率。</p>
+
+<p>模型的自动调整框架，运用遗传算法提高预测的精确度，降低了部署的负载。</p>
+
+<h3 id="模型介绍">模型介绍</h3>
+
+<p>传统的方法存在的问题：</p>
+
+<ul>
+  <li>用户最终购买推荐的物品的概率很低。</li>
+  <li>离线的方法不能发现用户最新的购买特征。</li>
+</ul>
+
+<p>为了解决上述问题，该论文建立了如下的架构（这里省略了返回路径）：</p>
+
+<script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.js"></script>
+<div class="mermaid">
+graph LR;
+    A[用户]--请求--&gt;B[服务器];
+    B--注入网页日志--&gt;C[文件数据库];
+    B--网页的请求与当前会话的记录--&gt;D[DRNN];
+    C--会话序列--&gt;D;
+    A--基本资料--&gt;E[FNN];
+    D--&gt;F[推荐结果];
+    E--&gt;F;
+</div>
+
+<p>在完成一次会话后，推荐结果的购买结果可以作为新的训练样例来调整模型。</p>
+
+<p>会话文件的产生有如下两个情况：</p>
+
+<ul>
+  <li>如果一条<strong>新会话</strong>的日志出现，则原来会话的所有日志生成一个会话文件。</li>
+  <li>如果一个<strong>预设的时间内没有新会话</strong>文件生成，则当前会话的所有日志生成一个会话文件。</li>
+</ul>
+
+<p>那么一个会话文件包含多个日志文件，简化为它们的 URL 请求根据时间戳形成的一个时间序列。</p>
+
+<h4 id="深度循环神经网络">深度循环神经网络</h4>
+
+<p>下面显示了一个基本的循环神经网络：</p>
+
+<script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.js"></script>
+<div class="mermaid">
+graph LR;
+    a[x]--U--&gt;b[a];
+    b--W--&gt;b;
+    b--V--&gt;c[o];
+</div>
+
+<ul>
+  <li>$a(i)=f(Ux(i)+Wa(i-1))$</li>
+  <li>$o(i)=softmax(Va(i))$</li>
+</ul>
+
+<p>通过增加隐层数形成深度神经网络。但是由于存储的限制，不可能使用无限多的状态，该论文引入了一个<strong>历史状态</strong>来处理溢出的旧数据。这个历史状态的向量是其包含的向量的加权求和，其中权重被设计为是一个<strong>老化因子</strong>基于当前数据与所有的目标数据之和的特定比率。</p>
+
+<p>利用协同过滤 CF 来捕获用户与商品上用户间共同的兴趣，即购买一些相同商品的用户间存在相似的商品倾向和兴趣。该论文的 RNN 模型作为在协同过滤的基础上对于用户的特异性补充，而<strong>本文使用 FNN 来模拟 CF</strong> 。（作为论文概述，这里对于本文中的技术实现细节不描述。）</p>
+
+<h3 id="优化与实验">优化与实验</h3>
+
+<p>优化的两个目标：</p>
+
+<ol>
+  <li>提高精确度</li>
+  <li>提高学习速度</li>
+</ol>
+
+<p>该论文所做了一些探索性的解决方案（技术细节详见论文）：</p>
+
+<ul>
+  <li>自动代码生成：输入参数配置文件，输出模型对应的脚本文件。</li>
+  <li>模型调参：利用遗传算法。</li>
+</ul>
+
+<p>其中实验验证了上述方案满足优化目标。</p>
+
+<h2 id="个人感悟和改进方案">个人感悟和改进方案</h2>
+
+<p>在阅读该论文时，发现该论文的模型的一个基本假设是：用户的访问路径（特别是当前范围内的）与最终的购买决策（或意图和兴趣等）有关。</p>
+
+<p>这是一个很好的出发点，不同于协同过滤的相对静态的数据，它认为除了决策结果能表明用户特征外，用户<strong>行为</strong>也能反映用户特征。</p>
+
+<p>那么这也为我提供了下图一个思考改进方案的方向：还有哪些可观测数据可以反映用户行为？</p>
+
+<script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.js"></script>
+<div class="mermaid">
+graph LR;
+    a[可观测数据]--&gt;b[用户行为];
+    b--&gt;c[用户需求];
+</div>
+
+<p>我尝试这样描述一个显式的需求：一个用户开始大量浏览某种品类的不同产品，那么这个用户明显地有购买该种商品的需求。对于这样的需求，推荐系统的一个任务就是提供一些符合用户预期的<strong>同种</strong>商品。</p>
+
+<p>结合我个人在购买物品的场景：我会在特别想买的某种物品时深入了解物品的一些相关数据和其他用户评论，这就形成了在单个网页上的可测量深度。所以在该论文抓住访问网页的时间序列的横向基础上，我认为可以在某个网页点上引入纵向维度：</p>
+
+<ul>
+  <li>页面的<strong>停留时间</strong></li>
+  <li>页面的<strong>阅读完成度</strong></li>
+</ul>
+
+<p>首先是页面的停留时间，测量办法为：当用户请求某个页面后，服务器响应并激活用户本地的计时器，在用户触发离开页面的事件时返回记录的时间。</p>
+
+<p>其次是页面的阅读完成度。这里设想了两个测量方案：</p>
+
+<ol>
+  <li>简单地估计为页面所处位置的深度，即页面当前位置距离页面顶端的距离。</li>
+  <li>基于页面信息结构的分段深度。假设将页面做单一线性的分层模板，如依次为商品简介、参数详情、用户评论三个层次。理论上，页面信息架构必须存在优先级，测量结果为递进的关系，用户触及越后面的层次时返回表示越高关注度和完成度的估计值。</li>
+</ol>
+
+<p>同样地，测量数据在用户触发离开页面的事件时返回服务器。</p>
+
+<p>显然，这里从路径上的单一访问节点来看，只能简单<strong>确定用户是否关注当前物品</strong>，而结合该论文所描述的整体路径来看，会起到更好的预期结果。</p>
+
+<p>而推荐系统的真正目标在于挖掘用户<strong>潜在的</strong>需求。从协同过滤算法来看，结合用户间的相似性是一个很好的解决办法。那么我就设想另一种方法通过对多个用户的购买商品向量进行聚类分析（？）。</p>
+
+<p>其实，对于用户关注度高但尚未购买（或一段时间内没有再购买）的商品品类，可以构建定制的用户数据库，并作为推荐系统的默认结果在用户二次登入（或一定天数后）返回，达到适时地激活用户已被验证的潜在需求，从而提高推荐商品的购买率。</p>
+
+<p>由于缺乏系统的论证，上述方案可能存在缺陷，仅作参考。</p>
+
+<p><em>If you find any bugs about this blog please contact me!</em></p>
+
+          </div>
+
+          <!-- <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0+3%20-%20https://15331335.github.io/MyBlog/MyBlog/posts/personal-recommendation-using-deep-recurrent-neural-networks-in-netease" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://15331335.github.io/MyBlog/MyBlog/posts/personal-recommendation-using-deep-recurrent-neural-networks-in-netease" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=https://15331335.github.io/MyBlog/MyBlog/posts/personal-recommendation-using-deep-recurrent-neural-networks-in-netease" title="Share on Google+" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 128 128"><path d="M40.7 55.9v16.1c0 0 15.6 0 22 0C59.2 82.5 53.8 88.2 40.7 88.2c-13.3 0-23.7-10.8-23.7-24.2s10.4-24.2 23.7-24.2c7.1 0 11.6 2.5 15.8 5.9 3.3-3.3 3.1-3.8 11.6-11.9 -7.2-6.6-16.8-10.6-27.4-10.6C18.2 23.3 0 41.5 0 64c0 22.5 18.2 40.7 40.7 40.7 33.6 0 41.8-29.3 39-48.8H40.7zM113.9 56.7V42.6h-10.1v14.1H89.4v10.1h14.5v14.5h10.1V66.8H128V56.7H113.9z"/></svg>
+            </a>
+          </div> -->
+
+          
+        </article>
+        <footer class="footer scrollappear">
+  <p>
+    Powered by <a href="https://jekyllrb.com" rel="noreferrer noopener" target="_blank" title="Jekyll">Jekyll</a> with the theme Chalk deisgned by Nielsen Ramon.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+
+<script src="/MyBlog/assets/vendor-fc473e608b0b6ac860d7cf928f4599e674f10e478cae7f4122bc51ccf885cbe8.js" type="text/javascript"></script>
+
+
+  <script src="/MyBlog/assets/webfonts-e3010885de8c083c4b2935d463b1649e8796191a66a1b43bb87ef04bbcce420d.js" type="text/javascript"></script>
+
+
+
+  <script src="/MyBlog/assets/scrollappear-e2da8ea567e418637e31266cc5302126eaa79f62a2273739086358b589a89ee6.js" type="text/javascript"></script>
+
+
+<script src="/MyBlog/assets/application-6542ce1f4b08c8bb3dedf929d13653238a86988e0e972326e4e1f7875b1fe49f.js" type="text/javascript"></script>
+
+</body>
+</html>

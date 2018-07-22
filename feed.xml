@@ -1,20 +1,82 @@
----
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom" xmlns:dc="https://purl.org/dc/elements/1.1/">
   <channel>
-    <title>{{ site.name | xml_escape }}</title>
-    <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
-    <link>{{ site.url }}</link>
-    <atom:link href="{{ page.path | absolute_url }}" rel="self" type="application/rss+xml" />
-    {% for post in site.posts limit:10 %}
+    <title>Hiyoung</title>
+    <description></description>
+    <link>https://15331335.github.io/MyBlog</link>
+    <atom:link href="https://15331335.github.io/MyBlog/MyBlog/feed.xml" rel="self" type="application/rss+xml" />
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.description | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | absolute_url }}</link>
-        <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
+        <title>设计模式速成指北</title>
+        <description>Design Patterens For Myself! 设计模式是常见问题的有效解决方法。</description>
+        <pubDate>Sun, 22 Jul 2018 00:00:00 +0800</pubDate>
+        <link>https://15331335.github.io/MyBlog/MyBlog/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%80%9F%E6%88%90%E6%8C%87%E5%8C%97</link>
+        <guid isPermaLink="true">https://15331335.github.io/MyBlog/MyBlog/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%80%9F%E6%88%90%E6%8C%87%E5%8C%97</guid>
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>系统分析与设计总结</title>
+        <description>在课程期末考试前复习笔记的基础上，添加了建模必考的九张图的要点。</description>
+        <pubDate>Thu, 19 Jul 2018 00:00:00 +0800</pubDate>
+        <link>https://15331335.github.io/MyBlog/MyBlog/posts/%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E6%80%BB%E7%BB%93</link>
+        <guid isPermaLink="true">https://15331335.github.io/MyBlog/MyBlog/posts/%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E6%80%BB%E7%BB%93</guid>
+      </item>
+    
+      <item>
+        <title>论文笔记 3</title>
+        <description>该笔记所阅读的论文为 Sai Wu 的 Personal Recommendation Using Deep Recurrent Neural Networks in NetEase 。</description>
+        <pubDate>Mon, 11 Jun 2018 00:00:00 +0800</pubDate>
+        <link>https://15331335.github.io/MyBlog/MyBlog/posts/personal-recommendation-using-deep-recurrent-neural-networks-in-netease</link>
+        <guid isPermaLink="true">https://15331335.github.io/MyBlog/MyBlog/posts/personal-recommendation-using-deep-recurrent-neural-networks-in-netease</guid>
+      </item>
+    
+      <item>
+        <title>论文笔记 2</title>
+        <description>该笔记所阅读的论文为 Ingo Weber 的 On Availability for Blockchain-Based Systems 。</description>
+        <pubDate>Mon, 11 Jun 2018 00:00:00 +0800</pubDate>
+        <link>https://15331335.github.io/MyBlog/MyBlog/posts/on-availability-for-blockchainbased-systems</link>
+        <guid isPermaLink="true">https://15331335.github.io/MyBlog/MyBlog/posts/on-availability-for-blockchainbased-systems</guid>
+      </item>
+    
+      <item>
+        <title>论文笔记 1</title>
+        <description>该笔记所阅读的论文为 Tomas Mikolov 的 Efficient Estimation of WordRepresentations in Vector Space 。</description>
+        <pubDate>Mon, 11 Jun 2018 00:00:00 +0800</pubDate>
+        <link>https://15331335.github.io/MyBlog/MyBlog/posts/efficient-estimation-of-wordrepresentations-in-vector-space</link>
+        <guid isPermaLink="true">https://15331335.github.io/MyBlog/MyBlog/posts/efficient-estimation-of-wordrepresentations-in-vector-space</guid>
+      </item>
+    
+      <item>
+        <title>Ofo 共享单车 App 用车业务建模</title>
+        <description>从 ofo 共享单车的移动应用入手，利用系统建模的方法分析其核心业务。</description>
+        <pubDate>Sun, 13 May 2018 00:00:00 +0800</pubDate>
+        <link>https://15331335.github.io/MyBlog/MyBlog/posts/ofo-%E5%85%B1%E4%BA%AB%E5%8D%95%E8%BD%A6-app-%E7%94%A8%E8%BD%A6%E4%B8%9A%E5%8A%A1%E5%BB%BA%E6%A8%A1</link>
+        <guid isPermaLink="true">https://15331335.github.io/MyBlog/MyBlog/posts/ofo-%E5%85%B1%E4%BA%AB%E5%8D%95%E8%BD%A6-app-%E7%94%A8%E8%BD%A6%E4%B8%9A%E5%8A%A1%E5%BB%BA%E6%A8%A1</guid>
+      </item>
+    
+      <item>
+        <title>Didi 软件描述</title>
+        <description>描述了中国网约车市场第一的移动应用「滴滴出行」的业务流程。</description>
+        <pubDate>Fri, 11 May 2018 00:00:00 +0800</pubDate>
+        <link>https://15331335.github.io/MyBlog/MyBlog/posts/didi-%E5%BA%94%E7%94%A8%E6%89%93%E8%BD%A6%E4%B8%9A%E5%8A%A1%E5%BB%BA%E6%A8%A1</link>
+        <guid isPermaLink="true">https://15331335.github.io/MyBlog/MyBlog/posts/didi-%E5%BA%94%E7%94%A8%E6%89%93%E8%BD%A6%E4%B8%9A%E5%8A%A1%E5%BB%BA%E6%A8%A1</guid>
+      </item>
+    
+      <item>
+        <title>Ofo 应用新旧版本比较</title>
+        <description>前不久美团收购了摩拜，而 4 月 28 日 ofo v3.0.0 重点引入了信息流，但是接入什么样的信息内容似乎还是一个亟待解决的问题。</description>
+        <pubDate>Mon, 30 Apr 2018 00:00:00 +0800</pubDate>
+        <link>https://15331335.github.io/MyBlog/MyBlog/posts/ofo-%E5%BA%94%E7%94%A8%E6%96%B0%E6%97%A7%E7%89%88%E6%9C%AC%E6%AF%94%E8%BE%83</link>
+        <guid isPermaLink="true">https://15331335.github.io/MyBlog/MyBlog/posts/ofo-%E5%BA%94%E7%94%A8%E6%96%B0%E6%97%A7%E7%89%88%E6%9C%AC%E6%AF%94%E8%BE%83</guid>
+      </item>
+    
+      <item>
+        <title>Start from chalk</title>
+        <description>Chalk is a high quality, completely customizable, performant and 100% free blog template for Jekyll.</description>
+        <pubDate>Sun, 29 Apr 2018 00:00:00 +0800</pubDate>
+        <link>https://15331335.github.io/MyBlog/MyBlog/posts/start-from-chalk</link>
+        <guid isPermaLink="true">https://15331335.github.io/MyBlog/MyBlog/posts/start-from-chalk</guid>
+      </item>
+    
   </channel>
 </rss>

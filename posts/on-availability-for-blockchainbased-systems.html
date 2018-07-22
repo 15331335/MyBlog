@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Hiyoung | 论文笔记 2</title>
+  <meta name="description" content="该笔记所阅读的论文为 Ingo Weber 的 On Availability for Blockchain-Based Systems 。">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="论文笔记 2">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://15331335.github.io/MyBlog/MyBlog/posts/on-availability-for-blockchainbased-systems">
+  <meta property="og:description" content="该笔记所阅读的论文为 Ingo Weber 的 On Availability for Blockchain-Based Systems 。">
+  <meta property="og:site_name" content="Hiyoung">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://15331335.github.io/MyBlog/MyBlog/posts/on-availability-for-blockchainbased-systems">
+  <meta name="twitter:title" content="论文笔记 2">
+  <meta name="twitter:description" content="该笔记所阅读的论文为 Ingo Weber 的 On Availability for Blockchain-Based Systems 。">
+
+  
+    
+      <meta property="og:image" content="https://15331335.github.io/MyBlog/MyBlog/assets/documentation/sample-image-0a264584b152aa8d86f61525d05ae1131787d0a1029aa1cb7e3e4148b5d34755.jpg">
+      <meta name="twitter:image" content="https://15331335.github.io/MyBlog/MyBlog/assets/documentation/sample-image-0a264584b152aa8d86f61525d05ae1131787d0a1029aa1cb7e3e4148b5d34755.jpg">
+    
+  
+
+  <link href="https://15331335.github.io/MyBlog/MyBlog/feed.xml" type="application/rss+xml" rel="alternate" title="Hiyoung Last 10 blog posts" />
+
+  
+
+  
+    <link rel="icon" type="image/x-icon" href="/MyBlog/assets/favicon-light-a98c41efc5ed9fcc06ac664c9e2f7a9b3c3b2e0a52357d221fe382f6f4abc8fc.ico">
+    <link rel="apple-touch-icon" href="/MyBlog/assets/apple-touch-icon-light-87d1f2a3a19b1500e5c1626a0492025ca5f7f97d24540dc5900288e92112925a.png">
+    <link rel="stylesheet" type="text/css" href="/MyBlog/assets/light-be96862508b7bb4497911637fbbdd848a1317f8c6ae4a6b2a82c6f88a3f35bf7.css">
+  
+
+  <script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav scrollappear">
+  <a href="/MyBlog/" class="header-logo" title="Hiyoung">Hiyoung</a>
+  <ul class="header-links">
+    
+      <li>
+        <a href="/MyBlog/about" title="About me">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-about">
+  <use href="/MyBlog/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about" xlink:href="/MyBlog/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://github.com/15331335" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/MyBlog/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github" xlink:href="/MyBlog/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:hiyoungtsui@gmail.com" title="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-email">
+  <use href="/MyBlog/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email" xlink:href="/MyBlog/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+  </ul>
+</nav>
+
+        <article class="article scrollappear">
+          <header class="article-header">
+            <h1>论文笔记 2</h1>
+            <p>该笔记所阅读的论文为 Ingo Weber 的 On Availability for Blockchain-Based Systems 。</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                June 11, 2018
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  1 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/MyBlog/tag/reading">reading</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <h2 id="论文概述">论文概述</h2>
+
+<p>本文对于基于区块链的系统可用性的基本结论是：</p>
+
+<ul>
+  <li>在数据读取上的可用性高</li>
+  <li><strong>在事务管理的写入上的可用性低</strong></li>
+</ul>
+
+<p>实验方法是计算应用内事务所需的提交时间。值得一提的是，由于固有的区块链设计，部分事务可能从未被提交。</p>
+
+<p>并且，由于缺少显式的<strong>中止或重试</strong>的内建操作，应用容易处于不确定的状态，即在一段未知的时间里事务处于等待状态（既不中止也不提交）。</p>
+
+<p>针对现有区块链的可用性限制原因，本文还提出了解决办法和实验技术。</p>
+
+<h3 id="关于区块链的介绍和背景">关于区块链的介绍和背景</h3>
+
+<p>区块链：复制的数据库或分布式账本（不受任何一方操控）</p>
+
+<ul>
+  <li>一个应用场景就是支持数字加密货币。</li>
+  <li>具有通用性，可用于任何领域的数据，并且可以部署和执行用户自定义的脚本（智能合约）。</li>
+  <li>涉及跨组织的业务流程的应用可以利用区块链的提供中介区域的优势。</li>
+</ul>
+
+<p>基于中本聪所描述的共识，区块链系统只提供了<strong>概率担保</strong>对于客户记录交易的不变性。这一点造成<strong>交易达到不变所需的时间容易被低估</strong>，从而影响可用性。</p>
+
+<p>在衡量可用性前，首先要了解基于区块链的应用在提交事务上的一些情况：</p>
+
+<ul>
+  <li>只要连上对等的活跃节点，便可以开始交易（事务）。</li>
+  <li>虽然连接是必要的，但却并不能保证事务的提交。（即<strong>连接不是提交的充分条件</strong>）</li>
+  <li>事务的提交要求某些对等节点创建一个区块的序列，其中第一块包含这个事务。</li>
+  <li><strong>所需序列的长度被应用程序用来确认交易成功执行</strong>，不同应用存在差异。</li>
+</ul>
+
+<p>可以观察到的是：<strong>大部分的交易没有在期望时间内完成提交。</strong></p>
+
+<p>区块链系统作为一个<strong>只能追加</strong>的记录参与者交易信息的公共账本，其中的交易涉及虚拟资产，即从一个账户到另一个账户到资产转移数量。由于取数字加密货币为例，这里交易与事务在概念上等价。</p>
+
+<ul>
+  <li>节点的客户机持有本地副本，并在网络中传递事务，同时也可以注入新的事务到网络。</li>
+  <li>事务采用<strong>非对称加密</strong>技术，私钥创建和签署事务，公钥用于验证。同时，公钥作为所有者的地址（推导），成为事务的源和目的地自由传播。</li>
+  <li>地址不显示所有者的真实身份（匿名），每个所有者可以有任意数量的地址。</li>
+  <li>公共账本的同步，涉及避免面同一个账户的双倍花费问题；同时，为了达成一致，事务被分组成块（区块）。</li>
+</ul>
+
+<p>因为该论文不是主要介绍区块链技术的，所以进一步的技术细节并未被提及，相关概念名词（如区块的目标值、随机散列的穷举计算、奖励和手续费等）也只是一笔带过。</p>
+
+<p>对于同时传播的分叉处理问题上，区块链采用了一个有趣的方式就是选择长链作为主链。在基于计算机算力的处理上，由此产生的对于系统的 51% 攻击在理论上成为可能，而矿工加入矿池为了合并开采、分享奖励的情况使得一些攻击者可能会利用其合并的挖掘能力威胁可靠性。</p>
+
+<h3 id="关于事务的提交">关于事务的提交</h3>
+
+<h4 id="针对比特币的实验">针对比特币的实验</h4>
+
+<p>由区块链的交易可知，事务的输出会成为新事务的输入。而在交易事务中，输出少于输入的部分会被认为是交给矿工的费用，这造成矿工们倾向于处理较高费用的区块。</p>
+
+<p>交易会出现延迟：</p>
+
+<ul>
+  <li>事务必须按顺序在内存池中处理，如果引用的父母未知，则为 <strong>Orphan</strong> 孤儿，矿工会选择等待父母，或一段时间后删除。</li>
+  <li>有经验的用户会设置 <strong>locktimes</strong> ：一个声明无效的参数，直到某个序列号开采。（类似于执行日期）</li>
+</ul>
+
+<p>在网络中，交易可能会出现失序的问题。其中的原因可能是：</p>
+
+<ul>
+  <li>节点转发行为的实现差异（版本）和矿工的负载</li>
+  <li>短暂的连接问题或<strong>网络的路由问题</strong></li>
+  <li>可能因为某些原因（如已在池中、双倍花费等）被内存池拒绝</li>
+</ul>
+
+<p>下面的图描述了一个事务到达池后的可能情况：</p>
+
+<script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.js"></script>
+<div class="mermaid">
+graph LR;
+	A[事务] --&gt; B[直接接受];
+	A --&gt; C[成为孤儿];
+	A --&gt; D[被拒绝];
+</div>
+
+<p>对于孤儿的提交延迟，该论文根据预期时间设计的实验发现：</p>
+
+<ul>
+  <li>不可能是由低的交易费用造成的。</li>
+  <li>不可能是由于 <strong>locktimes</strong> 造成的。</li>
+  <li>建议探究<strong>网络的传播时延</strong>。</li>
+</ul>
+
+<h4 id="针对以太坊的实验">针对以太坊的实验</h4>
+
+<p>下面描述了一个个人事务的状态机：</p>
+
+<script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.js"></script>
+<div class="mermaid">
+graph LR;
+	A[事务] -- 发起 --&gt; B[事务处于池中];
+	B -- 验证有效并插入 --&gt; C[事务处于块中];
+	C -- 包含事务的块链长较短 --&gt; B;
+	C -- 具有11个子序列块 --&gt; E[事务提交];
+	B --&gt; D[事务被丢弃];
+	D --&gt; B;
+	D -- 被取代 --&gt; F[事务过时];
+</div>
+
+<p>结合上述的表述可知，当事务所处的块属于较短的链时（相比与 <strong>uncle</strong> 主链），将回到内存池中。理论上这种情况发生的词数是没有上限的。事务插入块中并不意味着确认提交。</p>
+
+<p>该论文设计的实验探究了 <strong>gas price</strong> 、 <strong>gas limit</strong> 和网络对于提交时间的影响。</p>
+
+<p>（关于气的设置：气的设置：气价格<code class="highlighter-rouge">gasprice</code>、最大给定块的气<code class="highlighter-rouge">startgas</code>，给矿工的奖励是<code class="highlighter-rouge">(startgas-gas_rem)*gasprice</code>。交易执行的操作是可量化的<code class="highlighter-rouge">gas</code>数量）</p>
+
+<ul>
+  <li>气价格越高，提交所需时间普遍越低，但气价格在气价格达到 25 Gwei （20 为默认值）之后无明显差异。而最大气数量在实验中并未呈现强相关性。</li>
+  <li>设计的失序模拟网络延时实验表明较差的交易事务传播可能有负作用。</li>
+</ul>
+
+<p>对于矿工而言，可以设置每个区块的气限制。如果给定交易所需的气高于限制数，则交易不会被加入。</p>
+
+<p>设计的实验中针对三种交易类型：</p>
+
+<ul>
+  <li>大多数简单经济转移开销非常低，不会受影响。</li>
+  <li>合约调用普遍不是计算密集，开销分布一般。</li>
+  <li>合约创建所需气数量很高，许多都超过了预设的限制而不可能有效交易。</li>
+</ul>
+
+<h3 id="关于交易的中止">关于交易的中止</h3>
+
+<p>该论文设计的机制采用一种<strong>取代</strong>的策略：</p>
+
+<ul>
+  <li>与之前发出的交易信息相同的 <strong>nonce</strong> 值（相当于序号）</li>
+  <li>但拥有更高的交易费用（手续费）</li>
+</ul>
+
+<p>在不同的场景下的实验表明：池中的事务处理并非理性地倾向于高交易费，所以<strong>及时</strong>地正对中止原来<strong>极低费用</strong>的交易效果才明显较好。而这种中止的方法对于及时处理可能<strong>由于前一条插入信息造成的账户余额不足而掉滞留在池中的交易信息</strong>非常有效。</p>
+
+<h2 id="个人感悟和改进方案">个人感悟和改进方案</h2>
+
+<p>由于该论文是在讨论基于区块链技术的系统可用性上，所以对于技术细节并没有过多提及，而我在查阅相关的比特币和以太坊的底层技术细节的过程中，也深刻地感受到区块链技术所收到的极高关注和热度，同时技术本身也在不断地迭代。</p>
+
+<p>我阅读了比特币的白皮书（ <em>Bitcoin: A Peer-to-Peer Electronic Cash System</em> ），下面结合一些相关内容来谈谈个人感悟。</p>
+
+<p>其中主要涉及两个问题：</p>
+
+<ul>
+  <li>如何实现一个去中心化的点对点数字货币<strong>支付系统</strong>？</li>
+  <li>如何解决这个支付系统的<strong>双花问题</strong>？</li>
+</ul>
+
+<p>解决双花问题其实就是在确保系统能正常使用，相比与该论文讨论的可用性，其实后者更多地地是关注系统的效率上。</p>
+
+<p>在探讨这个系统的时候，它是被设计成实际<strong>不可逆</strong>的（尽管理论上存在控制算力达成的攻击手段完成分叉可逆）。这可以说是系统的一个优点，提供了一个不可逆的支付手段，也可以说是一个缺陷，在交易的过程中必须是<strong>完全信任</strong>对方的，因为错误的交易行为造成的损失无法追回的。在经济的一些社会行为来看，这一点很容易被恶意使用，解决的措施可以是设立通常的第三方担保，而该论文也在试图<strong>利用交易信息的不确定状态</strong>机会来实现中止操作。</p>
+
+<p>更进一步来看，系统的安全完全由算力的分布决定。如果简单区分算力为善恶两方的话，保证系统安全的就是善良的算力大于试图作恶的算力，<strong>控制算力带来的成本壁垒就是系统安全的保证</strong>。</p>
+
+<p>这里有个有趣的博弈论设想：首先是系统为复出大量算力成本的节点设立了<strong>奖励机制</strong>，这个机制就像节点的动力源泉，激励机制可能会帮助鼓励节点们保持善良。假设最坏的情况下大量的算力被控制，那就面临一个选择：可以使用算力来进行双花欺骗破坏系统，或者使用算力来获取更多的系统奖励。</p>
+
+<p>由于系统的<strong>工作证明机制</strong>其实是基于计算机算力的，而奖励机制在补偿运行算力的成本。但是奖励是被设计成随时间减少的，是否可以预见的是，多年后奖励无法补偿算力的成本，而造成算力的断崖式下跌，进而使得控制算力变得简单造成系统的脆弱性。</p>
+
+<p>作为一个类似分布式数据库的系统，在全网范围内讨论广播数据并保持一致性时，不可避免地会遇到同时接受一个有效区块的问题，而解决的这个问题的方法就是系统的<strong>长链规则</strong>。这里面其实也造成了该论文讨论的在效率上的可用性问题的根本出发点：事务插入块中并不意味着被确认提交。</p>
+
+<p>在我看来，对于区块链技术的设计者而言，去中心化是设计的核心，在一些权衡上也倾向于它，所以效率可以说是在设计上的一个被放弃的一点。</p>
+
+<p>最后回到该论文所讨论的系统可用性问题上，现在思考提高系统的写入效率和中止操作上。</p>
+
+<p>先说中止操作，回看整个区块链技术本身与其建立的数字货币应用，这整个系统很大程度上是基于密码学的，所以交易的安全性很有保障。而这里面的重要弊端就是，中止操作可能基于概率而无法保证实现。论文提供的思路是取代的策略，因为在全网广播的基础上实现全节点删除广播的信息是不太可能的。</p>
+
+<p>再看本文提出的方法遇到的问题，我设想的改进方案就是<strong>建立一个矿工间的共识：对于相同序号的信息优先处理高交易费用的</strong>，并舍弃低交易费用的。这个共识也不太可能出现恶意中止占用算力的情况，因为其中会不断消耗攻击者比特币成本。</p>
+
+<p>如果想要提高写入效率，首先得确定限制效率瓶颈。</p>
+
+<p>这里我很困惑的一点就是工作证明中的随机散列的暴力枚举，它使得原本轻松的事情人为的复杂化了，但算力在整个系统中是根基一样的概念。整个系统都处于一种概率稳定的状态，既然是假定多数节点是善良的，为何真正意义的<strong>随机选择节点</strong>不能存在？而<strong>提高单区块能容纳的交易数</strong>也是可行的。</p>
+
+<p>由于我对于区块链技术各个部分的关系仍不是很清晰，尚不能对系统很好地整体考量，只能做一些猜想。从计算机网络的层次形成来看，大规模的全网<strong>系统在设计上分层</strong>似乎是必然的最好情况，而区块间的链式结构也可以与树状结构结合。</p>
+
+<p>最后一点就是，CAP原则又称CAP定理，指的是在一个分布式系统中，Consistency（一致性）、 Availability（可用性）、Partition tolerance（分区容错性），三者不可得兼。</p>
+
+<p><em>If you find any bugs about this blog please contact me!</em></p>
+
+          </div>
+
+          <!-- <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0+2%20-%20https://15331335.github.io/MyBlog/MyBlog/posts/on-availability-for-blockchainbased-systems" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://15331335.github.io/MyBlog/MyBlog/posts/on-availability-for-blockchainbased-systems" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=https://15331335.github.io/MyBlog/MyBlog/posts/on-availability-for-blockchainbased-systems" title="Share on Google+" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 128 128"><path d="M40.7 55.9v16.1c0 0 15.6 0 22 0C59.2 82.5 53.8 88.2 40.7 88.2c-13.3 0-23.7-10.8-23.7-24.2s10.4-24.2 23.7-24.2c7.1 0 11.6 2.5 15.8 5.9 3.3-3.3 3.1-3.8 11.6-11.9 -7.2-6.6-16.8-10.6-27.4-10.6C18.2 23.3 0 41.5 0 64c0 22.5 18.2 40.7 40.7 40.7 33.6 0 41.8-29.3 39-48.8H40.7zM113.9 56.7V42.6h-10.1v14.1H89.4v10.1h14.5v14.5h10.1V66.8H128V56.7H113.9z"/></svg>
+            </a>
+          </div> -->
+
+          
+        </article>
+        <footer class="footer scrollappear">
+  <p>
+    Powered by <a href="https://jekyllrb.com" rel="noreferrer noopener" target="_blank" title="Jekyll">Jekyll</a> with the theme Chalk deisgned by Nielsen Ramon.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+
+<script src="/MyBlog/assets/vendor-fc473e608b0b6ac860d7cf928f4599e674f10e478cae7f4122bc51ccf885cbe8.js" type="text/javascript"></script>
+
+
+  <script src="/MyBlog/assets/webfonts-e3010885de8c083c4b2935d463b1649e8796191a66a1b43bb87ef04bbcce420d.js" type="text/javascript"></script>
+
+
+
+  <script src="/MyBlog/assets/scrollappear-e2da8ea567e418637e31266cc5302126eaa79f62a2273739086358b589a89ee6.js" type="text/javascript"></script>
+
+
+<script src="/MyBlog/assets/application-6542ce1f4b08c8bb3dedf929d13653238a86988e0e972326e4e1f7875b1fe49f.js" type="text/javascript"></script>
+
+</body>
+</html>
